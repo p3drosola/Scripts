@@ -1,7 +1,13 @@
 #!/usr/bin/env ruby
 require 'open-uri'
 
-username = ARGV[0].to_s
+if ARGV[0]
+	username = ARGV[0].to_s
+else
+	puts "Usage: ./stalker.rb skype.username"
+	exit
+end
+
 interval = 5
 ENDPOINT = 'http://mystatus.skype.com/' + username + '.num?cachebuster='
 
